@@ -25,7 +25,7 @@ namespace AmongUs.Loader
             Side = ModSide.Common;
         }
 
-        public override void Load(RegistrarProvider registrar)
+        public override void Load(RegistrarProvider registrarProvider)
         {
             MainMenu.VersionShowEvent += text => $"{text}, {ID} v{Version}\nMods: {Mods.Count}";
         }

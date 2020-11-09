@@ -7,10 +7,6 @@ namespace AmongUs.Api
 	[Side(ModSide.Client)]
 	public static class Language
 	{
-		public static event Action<LanguageButton> ChangeEvent;
-
-		public static void Change(LanguageButton button) => ChangeEvent?.Invoke(button);
-		
 		public static string Translate(string modId, string key)
 		{
 			if (!ModLoader.Instance.Mods.ContainsKey(modId)) return key;

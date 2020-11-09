@@ -6,13 +6,13 @@ namespace AmongUs.Api
     public static class PlayerColors
     {
         [Side(ModSide.Client)]
-        public static event Func<int, bool> SelectColorEvent;
-        public static event Func<PlayerTab, bool> SetAvailableColorsEvent;
-        public static event Func<PlayerControl, int, bool> TrySetColorEvent;
+        public static event Func<Color, bool> SelectColorEvent;
+        public static event Func<IPlayerCustomizationTab, bool> SetAvailableColorsEvent;
+        public static event Func<IPlayer, Color, bool> TrySetColorEvent;
 
         [Side(ModSide.Client)]
-        public static bool SelectColor(int color) => SelectColorEvent?.Invoke(color) != false;
-        public static bool SetAvailableColors(PlayerTab tab) => SetAvailableColorsEvent?.Invoke(tab) != false;
-        public static bool TrySetColor(PlayerControl control, int color) => TrySetColorEvent?.Invoke(control, color) != false;
+        public static bool PostSelectColorEvent(Color color) => SelectColorEvent?.Invoke(color) != false;
+        public static bool PostSetAvailableColorsEvent(IPlayerCustomizationTab tab) => SetAvailableColorsEvent?.Invoke(tab) != false;
+        public static bool PostTrySetColorEvent(IPlayer player, Color color) => TrySetColorEvent?.Invoke(player, color) != false;
     }
 }

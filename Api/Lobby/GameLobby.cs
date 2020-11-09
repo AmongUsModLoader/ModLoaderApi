@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace AmongUs.Api
 {
@@ -64,6 +65,7 @@ namespace AmongUs.Api
 
 	public interface IGameLobby
 	{
+		List<IPlayer> Players { get; }
 		float CountDownTimer { get; set; }
 		int MinPlayers { get; set; }
 		int LastPlayerCount { get; set; }

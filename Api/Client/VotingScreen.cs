@@ -7,9 +7,9 @@ namespace AmongUs.Api
     [Side(ModSide.Client)]
     public static class VotingScreen
     {
-        public static event Action<MeetingHud> UpdateEvent;
+        public static event Action<IVotingScreen> UpdateEvent;
 
-        public static void Update(MeetingHud hud) => UpdateEvent?.Invoke(hud);
+        public static void Update(IVotingScreen hud) => UpdateEvent?.Invoke(hud);
     }
 
     //Currently unused, wrapper for MeetingHud
@@ -20,11 +20,22 @@ namespace AmongUs.Api
         Vector3 TimerPosition { get; set; }
         Vector3 VotePosition { get; set; }
         Vector3 VoteButtonSize { get; set; }
-        PlayerVoteArea SkipVoteButton { get; set; } 
-        PlayerVoteArea[] PlayerStates { get; set; }
+        IPlayerVoteState SkipVoteButton { get; } 
+        IPlayerVoteState[] PlayerStates { get; }
         //GameData.IHEKEPMDGIJ ExiledPlayer { get; set; }
         bool Tied { get; set; }
         string TimerText { get; set; }
         float DiscussionTime { get; set; }
+    }
+
+    [Side(ModSide.Client)]
+    public interface IPlayerVoteState
+    {
+        string Name { get; set; }
+        bool IsDead { get; set; }
+        bool Voted { get; set; }
+        bool Reported { get; set; }
+        //IPlayer Vote { get; set; }
+        bool VotingFinished { get; set; }
     }
 }

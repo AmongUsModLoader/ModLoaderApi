@@ -70,7 +70,7 @@ namespace AmongUs.Loader
             Log = Logger.Create(name);
         }
 
-        public abstract void Load(RegistrarProvider registrar);
+        public abstract void Load(RegistrarProvider registrarProvider);
         public virtual bool Unload() => false;
 
         internal async Task SetUnderlyingAssembly(Assembly assembly)
