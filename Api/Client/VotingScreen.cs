@@ -1,6 +1,6 @@
 using System;
-using System.Numerics;
-using AmongUs.Loader;
+using AmongUs.Api.Loader;
+using UnityEngine;
 
 namespace AmongUs.Api
 {
@@ -17,10 +17,9 @@ namespace AmongUs.Api
     public interface IVotingScreen
     {
         string TitleText { get; set; }
-        Vector3 TimerPosition { get; set; }
         Vector3 VotePosition { get; set; }
         Vector3 VoteButtonSize { get; set; }
-        IPlayerVoteState SkipVoteButton { get; } 
+        IPlayerVoteState SkipVoteButton { get; }
         IPlayerVoteState[] PlayerStates { get; }
         //GameData.IHEKEPMDGIJ ExiledPlayer { get; set; }
         bool Tied { get; set; }
@@ -32,6 +31,8 @@ namespace AmongUs.Api
     public interface IPlayerVoteState
     {
         string Name { get; set; }
+        Vector3 Position { get; set; }
+        bool IsEnabled { get; set; }
         bool IsDead { get; set; }
         bool Voted { get; set; }
         bool Reported { get; set; }

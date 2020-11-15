@@ -1,5 +1,5 @@
 using System;
-using AmongUs.Loader;
+using AmongUs.Api.Loader;
 
 namespace AmongUs.Api
 {

@@ -1,6 +1,6 @@
 using AmongUs.Api;
 
-namespace AmongUs.Loader.Internal
+namespace AmongUs.Api.Loader.Internal
 {
     public abstract class ApiWrapper
     {

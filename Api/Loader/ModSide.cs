@@ -1,6 +1,6 @@
 using System;
 
-namespace AmongUs.Loader
+namespace AmongUs.Api.Loader
 {
     [Flags]
     public enum ModSide

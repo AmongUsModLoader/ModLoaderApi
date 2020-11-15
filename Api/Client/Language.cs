@@ -1,6 +1,6 @@
 using System;
-using AmongUs.Loader;
-using AmongUs.Loader.Internal;
+using AmongUs.Api.Loader;
+using AmongUs.Api.Loader.Internal;
 
 namespace AmongUs.Api
 {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using AmongUs.Api;
 using AmongUs.Api.Registry;
 
-namespace AmongUs.Loader
+namespace AmongUs.Api.Loader
 {
     public class ModLoader : Mod
     {
