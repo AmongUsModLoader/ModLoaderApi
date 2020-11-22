@@ -15,6 +15,7 @@ namespace AmongUs.Api
 			Address = address;
 			foreach (var server in servers)
 			{
+				server.Region = this;
 				Servers.Add(server);
 			}
 		}
@@ -23,17 +24,15 @@ namespace AmongUs.Api
 
 		public class Server
 		{
-			public Region Region { get; }
+			public Region Region { get; set; }
 			public string Name { get; }
 			public ushort Port { get; }
 
-			public Server(Region region, string name, ushort port)
+			public Server(string name, ushort port)
 			{
-				Region = region;
 				Name = name;
 				Port = port;
 			}
 		}
 	}
 }
-    
