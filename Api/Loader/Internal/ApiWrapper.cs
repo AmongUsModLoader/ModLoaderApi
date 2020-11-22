@@ -1,5 +1,3 @@
-using AmongUs.Api;
-
 namespace AmongUs.Api.Loader.Internal
 {
     public abstract class ApiWrapper
