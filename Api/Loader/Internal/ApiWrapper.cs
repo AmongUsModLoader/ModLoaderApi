@@ -10,5 +10,6 @@ namespace AmongUs.Api.Loader.Internal
         public abstract ILogger CreateLogger(string name);
 
         public abstract void AddRegion(Region region);
+        public abstract void SetMaxImpostors(int playerCount, int maxImpostors);
     }
 }

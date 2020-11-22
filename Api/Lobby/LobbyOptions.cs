@@ -33,7 +33,7 @@ namespace AmongUs.Api
 
 		public LobbyOptionInstance(IGameLobby lobby) => _lobby = lobby;
 
-		public void TriggerSettingsUpdate() => GameLobby.EditOptions(_lobby);
+		public void TriggerSettingsUpdate() => GameLobby.PostOptionsEditedEvent(_lobby);
 	}
 
 	public class LobbyOptionInstance<T> : LobbyOptionInstance

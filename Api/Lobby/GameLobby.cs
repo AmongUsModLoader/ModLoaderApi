@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AmongUs.Api.Loader.Internal;
 
 namespace AmongUs.Api
 {
@@ -55,16 +56,19 @@ namespace AmongUs.Api
 		public static void SetStartCounterPre(IGameLobby lobby, float seconds) =>
 			SetStartCounterEventPre?.Invoke(lobby, seconds);
 
-		public static void Update(IGameLobby lobby) => UpdateEvent?.Invoke(lobby);
+		public static void PostUpdateEvent(IGameLobby lobby) => UpdateEvent?.Invoke(lobby);
 
-		public static void MakePublic(IGameLobby lobby) => MakePublicEvent?.Invoke(lobby);
+		public static void PostMakePublicEvent(IGameLobby lobby) => MakePublicEvent?.Invoke(lobby);
 
-		public static void TryStart(IGameLobby lobby) => TryStartEvent?.Invoke(lobby);
+		public static void PostTryStartEvent(IGameLobby lobby) => TryStartEvent?.Invoke(lobby);
 
-		public static void GameStarting(IGameLobby lobby, bool neverShow) =>
+		public static void PostGameStartingEvent(IGameLobby lobby, bool neverShow) =>
 			GameStartingEvent?.Invoke(lobby, neverShow);
 		
-		public static void EditOptions(IGameLobby lobby) => OptionsEdited?.Invoke(lobby);
+		public static void PostOptionsEditedEvent(IGameLobby lobby) => OptionsEdited?.Invoke(lobby);
+
+		public static void SetMaxImpostors(int playerCount, int maxImpostors) =>
+			ApiWrapper.Instance.SetMaxImpostors(playerCount, maxImpostors);
 	}
 
 	public interface IGameLobby
