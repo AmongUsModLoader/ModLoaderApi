@@ -29,7 +29,7 @@ namespace AmongUs.Api
 
 	public class LobbyOptionInstance
 	{
-		private readonly IGameLobby _lobby;
+		protected readonly IGameLobby _lobby;
 
 		public LobbyOptionInstance(IGameLobby lobby) => _lobby = lobby;
 
@@ -44,7 +44,7 @@ namespace AmongUs.Api
 		{
 		}
 
-		public T Value
+		public virtual T Value
 		{
 			get => _value;
 			set

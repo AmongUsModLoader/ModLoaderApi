@@ -79,7 +79,7 @@ namespace AmongUs.Api
 		string PlayerCounter { get; set; }
 		
 		void ResetStartState();
-		T GetOption<T>(LobbyOption<T> option);
+		LobbyOptionInstance<T> GetOption<T>(LobbyOption<T> option);
 	}
 
 	public enum StartingState
