@@ -10,5 +10,7 @@ namespace AmongUs.Api.Loader.Internal
         public abstract string Language { get; }
 
         public abstract ILogger CreateLogger(string name);
+
+        public abstract void AddRegion(Region region);
     }
 }

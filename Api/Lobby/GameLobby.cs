@@ -42,25 +42,29 @@ namespace AmongUs.Api
 
 		//public static event Action<IGameLobby, PlayerControl, IDisconnectReason> PlayerDisconnectedEvent;
 		public static event Action<IGameLobby> DisconnectEvent;
+		
+		public static event Action<IGameLobby> OptionsEdited;
 
 
 		//"Load", this is when the lobby loads, not when the game starts
-		public static void Start(IGameLobby manager) => LobbyLoadEvent?.Invoke(manager);
+		public static void Start(IGameLobby lobby) => LobbyLoadEvent?.Invoke(lobby);
 
-		public static void SetStartCounterPost(IGameLobby manager, float seconds) =>
-			SetStartCounterEventPost?.Invoke(manager, seconds);
+		public static void SetStartCounterPost(IGameLobby lobby, float seconds) =>
+			SetStartCounterEventPost?.Invoke(lobby, seconds);
 
-		public static void SetStartCounterPre(IGameLobby manager, float seconds) =>
-			SetStartCounterEventPre?.Invoke(manager, seconds);
+		public static void SetStartCounterPre(IGameLobby lobby, float seconds) =>
+			SetStartCounterEventPre?.Invoke(lobby, seconds);
 
-		public static void Update(IGameLobby manager) => UpdateEvent?.Invoke(manager);
+		public static void Update(IGameLobby lobby) => UpdateEvent?.Invoke(lobby);
 
-		public static void MakePublic(IGameLobby manager) => MakePublicEvent?.Invoke(manager);
+		public static void MakePublic(IGameLobby lobby) => MakePublicEvent?.Invoke(lobby);
 
-		public static void TryStart(IGameLobby manager) => TryStartEvent?.Invoke(manager);
+		public static void TryStart(IGameLobby lobby) => TryStartEvent?.Invoke(lobby);
 
-		public static void GameStarting(IGameLobby manager, bool neverShow) =>
-			GameStartingEvent?.Invoke(manager, neverShow);
+		public static void GameStarting(IGameLobby lobby, bool neverShow) =>
+			GameStartingEvent?.Invoke(lobby, neverShow);
+		
+		public static void EditOptions(IGameLobby lobby) => OptionsEdited?.Invoke(lobby);
 	}
 
 	public interface IGameLobby
@@ -73,7 +77,9 @@ namespace AmongUs.Api
 		string GameStartText { get; set; }
 		string GameRoomName { get; set; }
 		string PlayerCounter { get; set; }
+		
 		void ResetStartState();
+		T GetOption<T>(LobbyOption<T> option);
 	}
 
 	public enum StartingState
